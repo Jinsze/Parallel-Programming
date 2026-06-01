@@ -1,0 +1,63 @@
+Compilation Instructions
+------------------------
+
+To compile both serial and parallel versions:
+
+    make
+
+This generates two executables:
+
+    serial_ocean
+    omp_ocean
+
+
+To remove executables:
+
+    make clean
+
+
+Running Instructions
+--------------------
+
+1. Serial Version
+
+Usage:
+
+    ./serial_ocean -d <dimension> -t <timesteps>
+
+Example:
+
+    ./serial_ocean -d 258 -t 64
+
+
+2. Parallel Version
+
+Usage:
+
+    ./omp_ocean -d <dimension> -t <timesteps> -n <threads>
+
+Example:
+
+    ./omp_ocean -d 258 -t 64 -n 8
+
+
+Test Parameters
+---------------
+
+The following parameters were used for testing:
+
+1. Grid Dimension (<dim>)
+
+    [18, 66, 258, 1026, 4098]
+
+These correspond to:
+    (2^n) + 2
+where n = [4, 6, 8, 10, 12]
+
+2. Timesteps (<timesteps>)
+
+    [4, 16, 64, 256]
+
+3. Number of Threads (<threads>)
+
+    [1, 2, 4, 8, 16, 32, 64]
